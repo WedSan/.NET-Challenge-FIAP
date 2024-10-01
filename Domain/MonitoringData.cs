@@ -9,7 +9,7 @@ namespace Domain
     public class MonitoringData
     {
 
-        public int Id { get; init; }
+        public int Id { get; set; }
 
         public User User { get; init; }
 

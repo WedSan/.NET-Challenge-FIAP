@@ -8,7 +8,7 @@ namespace Domain
 {
     public class DentalAnalysis
     {
-        public int Id { get; init; }
+        public int Id { get; set; }
 
         public User User { get; init; }
 
