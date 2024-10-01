@@ -17,14 +17,6 @@ namespace Infrastructure.EntityConfiguration
 
             builder.HasKey(e => e.ID);
 
-            builder.Property(e => e.ID)
-                   .HasColumnName("ID");
-
-            builder.Property(e => e.Procedures)
-                   .HasColumnName("ID_PROCEDIMENTO_DENTARIO");
-
-            builder.Property(e => e.User)
-                   .HasColumnName("ID_USUARIO");
 
             builder.Property(e => e.ConsultationDate)
                    .HasColumnName("DATA_CONSULTA");

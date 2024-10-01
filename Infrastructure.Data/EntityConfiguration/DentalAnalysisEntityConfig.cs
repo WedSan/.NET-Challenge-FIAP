@@ -20,9 +20,6 @@ namespace Infrastructure.EntityConfiguration
             builder.Property(da => da.Id)
                    .HasColumnName("ID");
 
-            builder.Property(da => da.User)
-                   .HasColumnName("ID_USUARIO");
-
             builder.Property(da => da.AnalysisDate)
                    .HasColumnName("DATA_ANALISE");
 
