@@ -10,7 +10,7 @@ namespace Domain
     {
         public int Id { get; init; }
 
-        public User user { get; init; }
+        public User User { get; init; }
 
         public DateTime AnalysisDate { get; init; }
 
@@ -21,7 +21,7 @@ namespace Domain
         public DentalAnalysis(int id, User user, DateTime analysisDate, float probabilityProblem, List<MonitoringData> monitoringDataList)
         {
             Id = id;
-            this.user = user;
+            this.User = user;
             AnalysisDate = analysisDate;
             ProbabilityProblem = probabilityProblem;
             MonitoringDataList = monitoringDataList;
