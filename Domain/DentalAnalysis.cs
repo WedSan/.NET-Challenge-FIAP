@@ -18,6 +18,10 @@ namespace Domain
 
         public List<MonitoringData> MonitoringDataList { get; init; }
 
+        public DentalAnalysis()
+        {
+        }
+
         public DentalAnalysis(int id, User user, DateTime analysisDate, float probabilityProblem, List<MonitoringData> monitoringDataList)
         {
             Id = id;

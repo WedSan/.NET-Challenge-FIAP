@@ -17,7 +17,11 @@ namespace Domain
 
         public List<DentalAnalysis> DentalAnalyses { get; init; }
 
-        public DateTime RegistrationDate { get; init; } 
+        public DateTime RegistrationDate { get; init; }
+
+        public MonitoringData()
+        {
+        }
 
         public MonitoringData(int id, User user, List<ReportDentalProblem> problems, List<DentalAnalysis> dentalAnalyses, DateTime registrationDate)
         {

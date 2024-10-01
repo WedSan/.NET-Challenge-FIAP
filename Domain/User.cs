@@ -12,6 +12,10 @@
 
         public Gender Gender { get; init; }
 
+        public User()
+        {
+        }
+
         public User(int id, string name, string email, string password, Gender gender)
         {
             Id = id;

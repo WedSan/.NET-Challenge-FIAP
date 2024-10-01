@@ -18,6 +18,10 @@ namespace Domain
            
         public String ToothCondition { get; init; }
 
+        public DentalHistory()
+        {
+        }
+
         public DentalHistory(int iD, User user, List<DentalProcedure> procedures, DateTime consultationDate, string toothCondition)
         {
             ID = iD;

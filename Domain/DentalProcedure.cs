@@ -14,6 +14,10 @@ namespace Domain
 
         public DentalHistory DentalHistory { get; set; }
 
+        public DentalProcedure()
+        {
+        }
+
         public DentalProcedure(int id, string name, DentalHistory dentalHistory)
         {
             Id = id;

@@ -12,6 +12,10 @@ namespace Domain
 
         public string Problem { get; set; }
 
+        public ReportDentalProblem()
+        {
+        }
+
         public ReportDentalProblem(int id, string problem)
         {
             Id = id;
