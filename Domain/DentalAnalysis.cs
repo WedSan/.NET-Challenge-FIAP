@@ -16,7 +16,7 @@ namespace Domain
 
         public float ProbabilityProblem { get; init; }
 
-        List<MonitoringData> MonitoringDataList { get; init; }
+        public List<MonitoringData> MonitoringDataList { get; init; }
 
         public DentalAnalysis(int id, User user, DateTime analysisDate, float probabilityProblem, List<MonitoringData> monitoringDataList)
         {
