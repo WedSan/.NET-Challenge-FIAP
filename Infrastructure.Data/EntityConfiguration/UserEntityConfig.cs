@@ -30,8 +30,9 @@ namespace Infrastructure.EntityConfiguration
             builder.Property(e => e.Gender)
                 .HasColumnName("GENERO")
                 .HasConversion(
-                    v => v.ToString(),
-                    v => (Gender)Enum.Parse(typeof(Gender), v));
+                    v => v == Gender.M ? 'M' : 'F',
+                    v => v == 'M' ? Gender.M : Gender.F 
+                    );
 
         }
 
