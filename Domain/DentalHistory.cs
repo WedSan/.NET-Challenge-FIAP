@@ -8,7 +8,7 @@ namespace Domain
 {
     public class DentalHistory
     {
-        public int ID { get; init; }
+        public int ID { get; set; }
 
         public User User { get; init; }
 
@@ -17,6 +17,10 @@ namespace Domain
         public DateTime ConsultationDate { get; init; }
            
         public String ToothCondition { get; init; }
+
+        public DentalHistory()
+        {
+        }
 
         public DentalHistory(int iD, User user, List<DentalProcedure> procedures, DateTime consultationDate, string toothCondition)
         {

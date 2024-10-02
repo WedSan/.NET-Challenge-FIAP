@@ -8,9 +8,13 @@ namespace Domain
 {
     public class ReportDentalProblem
     {
-        public int Id {  get; init; }
+        public int Id {  get; set; }
 
         public string Problem { get; set; }
+
+        public ReportDentalProblem()
+        {
+        }
 
         public ReportDentalProblem(int id, string problem)
         {

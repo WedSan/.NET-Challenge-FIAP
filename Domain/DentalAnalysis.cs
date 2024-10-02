@@ -8,20 +8,24 @@ namespace Domain
 {
     public class DentalAnalysis
     {
-        public int Id { get; init; }
+        public int Id { get; set; }
 
-        public User user { get; init; }
+        public User User { get; init; }
 
         public DateTime AnalysisDate { get; init; }
 
         public float ProbabilityProblem { get; init; }
 
-        List<MonitoringData> MonitoringDataList { get; init; }
+        public List<MonitoringData> MonitoringDataList { get; init; }
+
+        public DentalAnalysis()
+        {
+        }
 
         public DentalAnalysis(int id, User user, DateTime analysisDate, float probabilityProblem, List<MonitoringData> monitoringDataList)
         {
             Id = id;
-            this.user = user;
+            this.User = user;
             AnalysisDate = analysisDate;
             ProbabilityProblem = probabilityProblem;
             MonitoringDataList = monitoringDataList;

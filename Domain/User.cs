@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public int Id {  get; init; }
+        public int Id {  get; set; }
 
         public string Name { get; init; }
         
@@ -11,6 +11,10 @@
         public string Password { get; set; }
 
         public Gender Gender { get; init; }
+
+        public User()
+        {
+        }
 
         public User(int id, string name, string email, string password, Gender gender)
         {
