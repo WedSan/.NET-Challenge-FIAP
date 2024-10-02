@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class ReportDentalProblem
     {
-        public int Id {  get; set; }
+        public int Id { get; set; }
 
         public string Problem { get; set; }
 
@@ -19,7 +19,7 @@ namespace Domain
         public ReportDentalProblem(int id, string problem)
         {
             Id = id;
-            this.Problem = problem;
+            Problem = problem;
         }
     }
 }

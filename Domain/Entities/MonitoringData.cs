@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class MonitoringData
     {
@@ -26,10 +26,10 @@ namespace Domain
         public MonitoringData(int id, User user, List<ReportDentalProblem> problems, List<DentalAnalysis> dentalAnalyses, DateTime registrationDate)
         {
             Id = id;
-            this.User = user;
-            this.Problems = problems;
-            this.DentalAnalyses = dentalAnalyses;
-            this.RegistrationDate = registrationDate;
+            User = user;
+            Problems = problems;
+            DentalAnalyses = dentalAnalyses;
+            RegistrationDate = registrationDate;
         }
     }
 }

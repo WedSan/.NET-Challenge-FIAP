@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class DentalHistory
     {
@@ -15,8 +15,8 @@ namespace Domain
         public List<DentalProcedure> Procedures { get; init; }
 
         public DateTime ConsultationDate { get; init; }
-           
-        public String ToothCondition { get; init; }
+
+        public string ToothCondition { get; init; }
 
         public DentalHistory()
         {

@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Domain.Entities;
+using Domain.Extensions;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,14 +27,14 @@ namespace web.Controllers
             Gender genderParsed = Enum.Parse<Gender>(gender.ToString());
 
             User user = new User
-            { 
+            {
                 Name = name,
                 Email = email,
                 Password = password,
                 Gender = genderParsed
             };
 
-           return await _context.Users.AddAsync(user);
+            return await _context.Users.AddAsync(user);
         }
     }
 }
