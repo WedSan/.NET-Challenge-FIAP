@@ -1,5 +1,7 @@
 using Infrastructure.Data;
+using Infrastructure.IoC;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 internal class Program
 {
@@ -15,6 +17,8 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        AddDependency(builder.Services);
 
         builder.Configuration.AddEnvironmentVariables();
    
@@ -34,5 +38,12 @@ internal class Program
         app.MapControllers();
 
         app.Run();
+    }
+
+    public static void AddDependency(IServiceCollection services)
+    {
+        DependencyContainerRepositories.RegisterRepositories(services);
+        DependencyContainerValidators.RegisterValidators(services);
+        DependencyContainerService.RegisterServices(services);
     }
 }
