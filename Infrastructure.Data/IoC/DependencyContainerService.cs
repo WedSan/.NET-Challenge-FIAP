@@ -19,6 +19,8 @@ namespace Infrastructure.IoC
             services.AddScoped<IUserEmailUpdater, UserEmailUpdater>();
 
             services.AddScoped<IUserPasswordUpdater, UserPasswordUpdater>();
+
+            services.AddScoped<IMonitoringDataService, MonitoringDataService>();
         }
     }
 }
