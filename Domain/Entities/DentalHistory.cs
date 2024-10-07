@@ -12,7 +12,7 @@ namespace Domain.Entities
 
         public virtual User User { get; init; }
 
-        public virtual List<DentalProcedure> Procedures { get; init; }
+        public virtual List<DentalProcedure> Procedures { get; set; }
 
         public DateTime ConsultationDate { get; init; }
 
