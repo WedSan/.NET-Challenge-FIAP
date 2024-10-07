@@ -29,9 +29,7 @@ namespace Infrastructure.Repository
 
         public async Task<List<T>> GetAllAsync(int pageNumber, int pageSize)
         {
-            IQueryable<T> query = ApplyIncludes(_dbSet);
-
-            return await query
+            return await _dbSet
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -57,18 +55,5 @@ namespace Infrastructure.Repository
             _dbSet.Update(entity);
         }
 
-        private IQueryable<T> ApplyIncludes(DbSet<T> dbSet)
-        {
-            IEntityType entityType = _context.Model.FindEntityType(typeof(T));
-
-            IQueryable<T> query = dbSet.AsQueryable();
-
-            foreach(var navigation in entityType.GetNavigations())
-            {
-                query = query.Include(navigation.Name);
-            }
-
-            return query;
-        }
     }
 }
