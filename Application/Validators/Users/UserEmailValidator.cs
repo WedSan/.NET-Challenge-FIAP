@@ -23,9 +23,9 @@ namespace Application.Validators.Users
         }
 
 
-        public async void Validate(User user)
+        public async Task Validate(User user)
         {
-            ValidateEmail(user.Email);
+            await ValidateEmail(user.Email);
         }
 
         public async Task ValidateEmail(string email)

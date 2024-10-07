@@ -9,6 +9,6 @@ namespace Application.Validators.Users
 {
     public interface IUserCreationValidator
     {
-        void Validate(User user);
+        Task Validate(User user);
     }
 }
