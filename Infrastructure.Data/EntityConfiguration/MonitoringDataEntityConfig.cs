@@ -26,12 +26,12 @@ namespace Infrastructure.EntityConfiguration
             builder.HasOne(d => d.User)
                    .WithMany()
                    .HasForeignKey("ID_USUARIO")
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(d => d.Problems)
                    .WithOne(p => p.MonitoringData)
                    .HasForeignKey("ID_DADO_MONITORAMENTO")
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(md => md.DentalAnalyses)
               .WithMany(da => da.MonitoringDataList)
@@ -40,11 +40,11 @@ namespace Infrastructure.EntityConfiguration
                   j => j.HasOne<DentalAnalysis>()
                       .WithMany()
                       .HasForeignKey("ID_ANALISE_DENTARIA")
-                      .OnDelete(DeleteBehavior.Restrict),
+                      .OnDelete(DeleteBehavior.Cascade),
                   j => j.HasOne<MonitoringData>()
                       .WithMany()
                       .HasForeignKey("ID_DADO_MONITORAMENTO")
-                      .OnDelete(DeleteBehavior.Restrict),
+                      .OnDelete(DeleteBehavior.Cascade),
           
                   j =>
                   {

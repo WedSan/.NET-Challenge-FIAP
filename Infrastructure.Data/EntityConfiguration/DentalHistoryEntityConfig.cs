@@ -32,7 +32,7 @@ namespace Infrastructure.EntityConfiguration
             builder.HasOne(d => d.User)
                    .WithMany()
                    .HasForeignKey("ID_USUARIO")
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -22,6 +22,11 @@ namespace Infrastructure.EntityConfiguration
 
             builder.Property(e => e.Name)
                    .HasColumnName("PROCEDIMENTO");
+
+            builder.HasOne(e => e.DentalHistory)
+                .WithMany(dh => dh.Procedures)
+                .HasForeignKey("ID_HISTORICO_DENTAL")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

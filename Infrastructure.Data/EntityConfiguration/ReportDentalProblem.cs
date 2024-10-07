@@ -25,7 +25,8 @@ namespace Infrastructure.EntityConfiguration
 
             builder.HasOne(e => e.MonitoringData)
                 .WithMany(md => md.Problems)
-                .HasForeignKey("ID_DADO_MONITORAMENTO");
+                .HasForeignKey("ID_DADO_MONITORAMENTO")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
