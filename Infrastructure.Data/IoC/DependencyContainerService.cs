@@ -21,6 +21,8 @@ namespace Infrastructure.IoC
             services.AddScoped<IUserPasswordUpdater, UserPasswordUpdater>();
 
             services.AddScoped<IMonitoringDataService, MonitoringDataService>();
+
+            services.AddScoped<IDentalAnalysisService, DentalAnalysisService>();
         }
     }
 }
