@@ -12,14 +12,17 @@ namespace Domain.Entities
 
         public string Problem { get; set; }
 
+        public MonitoringData MonitoringData { get; set; }
+
         public ReportDentalProblem()
         {
         }
 
-        public ReportDentalProblem(int id, string problem)
+        public ReportDentalProblem(int id, string problem, MonitoringData dentalHistory)
         {
             Id = id;
             Problem = problem;
+            MonitoringData = dentalHistory;
         }
     }
 }
