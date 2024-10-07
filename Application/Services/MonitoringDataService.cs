@@ -40,14 +40,14 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<MonitoringData>> GetMonitoringDataAsync(int pageNumber, int pageSize)
+        public async Task<IEnumerable<MonitoringData>> GetMonitoringDataAsync(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            return await _entityRepository.GetAllAsync(pageNumber, pageSize);
         }
 
-        public Task<MonitoringData> GetMonitoringDataByIdAsync(int monitoringDataId)
+        public async Task<MonitoringData> GetMonitoringDataByIdAsync(int monitoringDataId)
         {
-            throw new NotImplementedException();
+            return await _entityRepository.GetByIdAsync(monitoringDataId);
         }
 
         public Task<MonitoringData> UpdateMonitoringDataAsync(int monitoringDataId, List<ReportDentalProblem> dentalProblems)
