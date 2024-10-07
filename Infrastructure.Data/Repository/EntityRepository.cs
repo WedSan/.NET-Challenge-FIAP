@@ -2,6 +2,7 @@
 using Domain.Interfaces.Repositories;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,9 @@ namespace Infrastructure.Repository
 
         public async Task<List<T>> GetAllAsync(int pageNumber, int pageSize)
         {
-            return await _dbSet
+            IQueryable<T> query = ApplyIncludes(_dbSet);
+
+            return await query
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -52,6 +55,20 @@ namespace Infrastructure.Repository
         public void Update(T entity)
         {
             _dbSet.Update(entity);
+        }
+
+        private IQueryable<T> ApplyIncludes(DbSet<T> dbSet)
+        {
+            IEntityType entityType = _context.Model.FindEntityType(typeof(T));
+
+            IQueryable<T> query = dbSet.AsQueryable();
+
+            foreach(var navigation in entityType.GetNavigations())
+            {
+                query = query.Include(navigation.Name);
+            }
+
+            return query;
         }
     }
 }
