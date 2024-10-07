@@ -23,6 +23,8 @@ namespace Infrastructure.IoC
             services.AddScoped<IMonitoringDataService, MonitoringDataService>();
 
             services.AddScoped<IDentalAnalysisService, DentalAnalysisService>();
+
+            services.AddScoped<IDentalHistoryEntityService, DentalHistoryService>();
         }
     }
 }
