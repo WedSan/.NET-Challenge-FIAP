@@ -28,5 +28,12 @@ namespace web.Mapper
 
 
         }
+
+        public static IEnumerable<MonitoringDataResponse> ToDto(IEnumerable<MonitoringData> dataList)
+        {
+            return dataList.Select(md => ToDto(md));
+
+
+        }
     }
 }
