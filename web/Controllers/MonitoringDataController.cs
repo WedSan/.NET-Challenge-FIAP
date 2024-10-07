@@ -25,5 +25,21 @@ namespace web.Controllers
             MonitoringDataResponse response = MonitoringDataMapper.ToDto(monitoringData);
             return CreatedAtAction(nameof(CreateMonitoringData), response); 
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<MonitoringDataResponse>>> GetAllMonitoringData(int pageNumber = 0, int pageSize = 10)
+        {
+            IEnumerable<MonitoringData> monitoringDataList = await _service.GetMonitoringDataAsync(pageNumber, pageSize);
+            IEnumerable<MonitoringDataResponse> response = MonitoringDataMapper.ToDto(monitoringDataList);
+            return Ok(response);
+        }
+
+        [HttpGet("{monitoringDataId}")]
+        public async Task<ActionResult<IEnumerable<MonitoringDataResponse>>> GetAllMonitoringData(int monitoringDataId)
+        {
+            MonitoringData monitoringData = await _service.GetMonitoringDataByIdAsync(monitoringDataId);
+            MonitoringDataResponse response = MonitoringDataMapper.ToDto(monitoringData);
+            return Ok(response);
+        }
     }
 }
