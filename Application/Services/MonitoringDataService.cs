@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using System;
@@ -35,9 +36,11 @@ namespace Application.Services
             return monitoringData;
         }
 
-        public Task DeleteMonitoringDataAsync(int monitoringDataId)
+        public async Task DeleteMonitoringDataAsync(int monitoringDataId)
         {
-            throw new NotImplementedException();
+            MonitoringData monitoringDataDeleted = await _entityRepository.GetByIdAsync(monitoringDataId);
+            _entityRepository.Remove(monitoringDataDeleted);
+            await _entityRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<MonitoringData>> GetMonitoringDataAsync(int pageNumber, int pageSize)
@@ -47,12 +50,23 @@ namespace Application.Services
 
         public async Task<MonitoringData> GetMonitoringDataByIdAsync(int monitoringDataId)
         {
-            return await _entityRepository.GetByIdAsync(monitoringDataId);
+            MonitoringData monitoringData = await _entityRepository.GetByIdAsync(monitoringDataId);
+            if(monitoringData == null)
+            {
+                throw new EntityNotFoundException("Monitoring Data doesn't exist");
+            }
+
+            return monitoringData;
         }
 
-        public Task<MonitoringData> UpdateMonitoringDataAsync(int monitoringDataId, List<ReportDentalProblem> dentalProblems)
+        public async Task<MonitoringData> UpdateMonitoringDataUserAsync(int monitoringDataId, int userId)
         {
-            throw new NotImplementedException();
+            User userFounded = await _userService.GetUserByIdAsync(userId);
+            MonitoringData monitoringData = await GetMonitoringDataByIdAsync(monitoringDataId);
+            monitoringData.User = userFounded;
+            _entityRepository.Update(monitoringData);
+            await _entityRepository.SaveChangesAsync();
+            return monitoringData;
         }
     }
 }
