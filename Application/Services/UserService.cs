@@ -33,7 +33,7 @@ namespace Application.Services
 
             foreach (IUserCreationValidator validator in _validators)
             {
-                validator.Validate(user); 
+                await validator.Validate(user); 
             }
 
             await _entityRepository.AddAsync(user);
