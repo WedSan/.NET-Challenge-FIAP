@@ -15,7 +15,7 @@ namespace Domain.Interfaces.Services
 
         Task<MonitoringData> GetMonitoringDataByIdAsync(int monitoringDataId);
 
-        Task<MonitoringData> UpdateMonitoringDataAsync(int monitoringDataId, List<ReportDentalProblem> dentalProblems);
+        Task<MonitoringData> UpdateMonitoringDataUserAsync(int monitoringDataId, int userId);
 
         Task DeleteMonitoringDataAsync(int monitoringDataId);
     }
