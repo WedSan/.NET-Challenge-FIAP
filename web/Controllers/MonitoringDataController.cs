@@ -41,5 +41,20 @@ namespace web.Controllers
             MonitoringDataResponse response = MonitoringDataMapper.ToDto(monitoringData);
             return Ok(response);
         }
+
+        [HttpPatch("{monitoringDataId}")]
+        public async Task<ActionResult<MonitoringDataResponse>> UpdateMonitoringData(int monitoringDataId, [FromBody] UpdateMonitoringDataRequest updateRequest)
+        {
+            MonitoringData monitoringDataUpdated = await _service.UpdateMonitoringDataUserAsync(monitoringDataId, updateRequest.UserId);
+            MonitoringDataResponse response = MonitoringDataMapper.ToDto(monitoringDataUpdated);
+            return Ok(response);
+        }
+
+        [HttpDelete("{monitoringDataId}")]
+        public async Task<ActionResult> DeleteMonitoringData(int monitoringDataId)
+        {
+            await _service.DeleteMonitoringDataAsync(monitoringDataId);
+            return NoContent(); 
+        }
     }
 }
