@@ -26,7 +26,7 @@ namespace Infrastructure.EntityConfiguration
 
             builder.HasMany(d => d.Procedures)
                    .WithOne()
-                   .HasForeignKey("ID_PROCEDIMENTO_DENTARIO")
+                   .HasForeignKey("ID_HISTORICO_DENTAL")
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(d => d.User)
