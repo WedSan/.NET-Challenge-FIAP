@@ -12,7 +12,7 @@ namespace Domain.Entities
 
         public string Problem { get; set; }
 
-        public MonitoringData MonitoringData { get; set; }
+        public virtual MonitoringData MonitoringData { get; set; }
 
         public ReportDentalProblem()
         {

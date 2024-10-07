@@ -12,7 +12,7 @@ namespace Domain.Entities
 
         public string Name { get; set; }
 
-        public DentalHistory DentalHistory { get; set; }
+        public virtual DentalHistory DentalHistory { get; set; }
 
         public DentalProcedure()
         {

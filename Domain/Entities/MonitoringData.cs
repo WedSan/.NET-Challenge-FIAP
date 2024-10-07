@@ -11,13 +11,13 @@ namespace Domain.Entities
 
         public int Id { get; set; }
 
-        public User User { get; init; }
+        public virtual User User { get; set; }
 
-        public List<ReportDentalProblem> Problems { get; init; }
+        public virtual List<ReportDentalProblem> Problems { get; init; }
 
-        public List<DentalAnalysis> DentalAnalyses { get; init; }
+        public virtual List<DentalAnalysis> DentalAnalyses { get; init; }
 
-        public DateTime RegistrationDate { get; init; }
+        public  DateTime RegistrationDate { get; init; }
 
         public MonitoringData()
         {

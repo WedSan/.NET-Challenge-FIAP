@@ -10,13 +10,13 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
 
-        public User User { get; init; }
+        public virtual User User { get; init; }
 
         public DateTime AnalysisDate { get; init; }
 
         public float ProbabilityProblem { get; init; }
 
-        public List<MonitoringData> MonitoringDataList { get; init; }
+        public virtual List<MonitoringData> MonitoringDataList { get; init; }
 
         public DentalAnalysis()
         {
