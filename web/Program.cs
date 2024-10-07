@@ -11,7 +11,7 @@ internal class Program
 
         // Add services to the container.
        builder.Services.AddDbContext<AppDbContext>(option =>
-            option.UseOracle(Environment.GetEnvironmentVariable("OracleConnectionString")));
+            option.UseLazyLoadingProxies().UseOracle(Environment.GetEnvironmentVariable("OracleConnectionString")));
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
