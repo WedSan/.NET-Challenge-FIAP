@@ -14,7 +14,7 @@ namespace Domain.Entities
 
         public DateTime AnalysisDate { get; init; }
 
-        public float ProbabilityProblem { get; init; }
+        public float ProbabilityProblem { get; set; }
 
         public virtual List<MonitoringData> MonitoringDataList { get; init; }
 
