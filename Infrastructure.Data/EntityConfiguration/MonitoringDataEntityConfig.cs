@@ -29,8 +29,8 @@ namespace Infrastructure.EntityConfiguration
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(d => d.Problems)
-                   .WithOne()
-                   .HasForeignKey("ID_RELATO_PROBLEMA USUARIO")
+                   .WithOne(p => p.MonitoringData)
+                   .HasForeignKey("ID_DADO_MONITORAMENTO")
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(md => md.DentalAnalyses)

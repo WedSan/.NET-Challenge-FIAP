@@ -22,6 +22,10 @@ namespace Infrastructure.EntityConfiguration
 
             builder.Property(e => e.Problem)
                    .HasColumnName("PROBLEMA");
+
+            builder.HasOne(e => e.MonitoringData)
+                .WithMany(md => md.Problems)
+                .HasForeignKey("ID_DADO_MONITORAMENTO");
         }
     }
 }
