@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class DentalProcedure
     {
         public int Id { get; set; }
 
-        public String Name { get; set; }
+        public string Name { get; set; }
 
-        public DentalHistory DentalHistory { get; set; }
+        public virtual DentalHistory DentalHistory { get; set; }
 
         public DentalProcedure()
         {
