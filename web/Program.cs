@@ -2,6 +2,7 @@ using Infrastructure.Data;
 using Infrastructure.IoC;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
+using web.Middleware;
 
 internal class Program
 {
@@ -31,10 +32,12 @@ internal class Program
             app.UseSwaggerUI();
         }
 
+        app.UseMiddleware<ExceptionMiddleware>();
+        
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
+        
         app.MapControllers();
 
         app.Run();
