@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class DentalHistory
     {
         public int ID { get; set; }
 
-        public User User { get; init; }
+        public virtual User User { get; init; }
 
-        public List<DentalProcedure> Procedures { get; init; }
+        public virtual List<DentalProcedure> Procedures { get; set; }
 
         public DateTime ConsultationDate { get; init; }
-           
-        public String ToothCondition { get; init; }
+
+        public string ToothCondition { get; init; }
 
         public DentalHistory()
         {

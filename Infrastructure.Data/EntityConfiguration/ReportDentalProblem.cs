@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
+using Domain.Entities;
 
 namespace Infrastructure.EntityConfiguration
 {
@@ -22,6 +22,11 @@ namespace Infrastructure.EntityConfiguration
 
             builder.Property(e => e.Problem)
                    .HasColumnName("PROBLEMA");
+
+            builder.HasOne(e => e.MonitoringData)
+                .WithMany(md => md.Problems)
+                .HasForeignKey("ID_DADO_MONITORAMENTO")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

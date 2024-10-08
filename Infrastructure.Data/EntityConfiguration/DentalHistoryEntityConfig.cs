@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
+using Domain.Entities;
 
 namespace Infrastructure.EntityConfiguration
 {
@@ -26,13 +26,13 @@ namespace Infrastructure.EntityConfiguration
 
             builder.HasMany(d => d.Procedures)
                    .WithOne()
-                   .HasForeignKey("ID_PROCEDIMENTO_DENTARIO")
+                   .HasForeignKey("ID_HISTORICO_DENTAL")
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(d => d.User)
                    .WithMany()
                    .HasForeignKey("ID_USUARIO")
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
