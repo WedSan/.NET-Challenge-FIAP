@@ -16,10 +16,10 @@ namespace web.Mapper
 
         public static IEnumerable<DentalProcedureResponse> ToDto(IEnumerable<DentalProcedure> dentalProcedures)
         {
-            IEnumerable<DentalProcedureResponse> newList = new List<DentalProcedureResponse>();
+            List<DentalProcedureResponse> newList = new List<DentalProcedureResponse>();
             foreach (var item in dentalProcedures)
             {
-                newList.Append(ToDto(item));
+                newList.Add(ToDto(item));
             }
             return newList;
         }
