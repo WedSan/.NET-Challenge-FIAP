@@ -27,6 +27,8 @@ namespace Infrastructure.IoC
             services.AddScoped<IDentalHistoryEntityService, DentalHistoryService>();
 
             services.AddScoped<IReportDentalProblemService, ReportDentalProblemService>();
+
+            services.AddScoped<IDentalProcedureService, DentalProcedureService>();
         }
     }
 }
