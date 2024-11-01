@@ -17,6 +17,9 @@ internal class Program
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
+
+        builder.Services.AddControllersWithViews();
+        
         builder.Services.AddSwaggerGen();
 
         AddDependency(builder.Services);
@@ -39,7 +42,10 @@ internal class Program
         app.UseAuthorization();
         
         app.MapControllers();
-
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/"
+        );
         app.Run();
     }
 

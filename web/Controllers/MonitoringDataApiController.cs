@@ -9,11 +9,11 @@ namespace web.Controllers
 {
     [Controller]
     [Route("api/v1/monitoring-data")]
-    public class MonitoringDataController : Controller
+    public class MonitoringDataApiController : Controller
     {
         private IMonitoringDataService _service;
 
-        public MonitoringDataController(IMonitoringDataService service)
+        public MonitoringDataApiController(IMonitoringDataService service)
         {
             _service = service;
         }
