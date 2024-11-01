@@ -54,8 +54,9 @@ public class DentalHistoryController : Controller
             {
                 return NotFound();
             }
-            var response = DentalHistoryMapper.ToDTO(dentalHistory);
-            return View(response);
+
+            UpdateDentalHistoryRequest update = new UpdateDentalHistoryRequest();
+            return View(update);
         }
 
         // POST: DentalHistory/Edit/5
