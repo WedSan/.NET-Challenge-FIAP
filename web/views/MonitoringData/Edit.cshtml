@@ -17,7 +17,7 @@
 @Html.Partial("_Header")
 <h2>Edit Monitoring Data</h2>
 
-<form method="post" action="@Url.Action("Edit", "MonitoringDataApi", new { monitoringDataId = monitoringId })">
+<form method="post" action="@Url.Action("Edit", "MonitoringData", new { monitoringDataId = monitoringId })">
     @Html.AntiForgeryToken()
     
     <div class="form-group">

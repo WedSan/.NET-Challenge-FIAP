@@ -1,5 +1,7 @@
-﻿@model web.DTO.DentalHistory.UpdateDentalHistoryRequest
-
+﻿@model web.DTO.DentalHistory.UpdateDentalHistoryView
+@{
+    var id = ViewData["dentalHistoryId"];
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +15,13 @@
 <h2 class="mt-4 text-center">Edit Dental History</h2>
 
 <div class="container d-flex justify-content-center mt-5">
-    <form asp-action="Edit" method="post">
+    <form method="post" action="@Url.Action("Edit", "DentalHistory", new { dentalHistoryId = id })">
+        @Html.AntiForgeryToken()
         <table class="table table-bordered">
             <tr>
                 <th><label asp-for="Procedures">Procedures</label></th>
                 <td>
-                    <input asp-for="Procedures" class="form-control" />
+                    <input asp-for="Procedures" name="NewProcedures" class="form-control"/>
                     <span asp-validation-for="Procedures" class="text-danger"></span>
                 </td>
             </tr>

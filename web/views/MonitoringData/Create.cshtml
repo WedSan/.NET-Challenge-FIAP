@@ -16,7 +16,7 @@
 @Html.Partial("_Header")
 <div class="container mt-5">
     <h2>@ViewData["Title"]</h2>
-    <form method="post" action="@Url.Action("Create", "MonitoringDataApi")">
+    <form method="post" action="@Url.Action("Create", "MonitoringData")">
         @Html.AntiForgeryToken()
 
         <div class="form-group mb-3">
@@ -30,7 +30,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Submit</button>
-        <a href="@Url.Action("Index", "MonitoringDataApi")" class="btn btn-secondary">Back to List</a>
+        <a href="@Url.Action("Index", "MonitoringData")" class="btn btn-secondary">Back to List</a>
     </form>
 </div>
 </body>
