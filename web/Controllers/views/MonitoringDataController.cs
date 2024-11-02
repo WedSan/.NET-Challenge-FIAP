@@ -35,7 +35,12 @@ public class MonitoringDataController : Controller
         {
             if (ModelState.IsValid)
             {
-                var monitoringData = await _service.CreateMonitoringDataAsync(request.UserId, MonitoringDataMapper.MapToDentalProblem(request.DentalProblems));
+                IEnumerable<string> dentalProblems = request.DentalProblems
+                    .SelectMany(e => e.Split(","))
+                    .Select(e => e.Trim());
+                
+                var monitoringData = await _service.CreateMonitoringDataAsync(request.UserId,
+                    MonitoringDataMapper.MapToDentalProblem(dentalProblems));
                 return RedirectToAction(nameof(Index));
             }
             return View(request);

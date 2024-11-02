@@ -25,7 +25,8 @@ public class DentalHistoryController : Controller
         // GET: DentalHistory/Create
         public IActionResult Create()
         {
-            return View();
+            
+            return View(new AddDentalHistoryRequest());
         }
 
         // POST: DentalHistory/Create
@@ -35,9 +36,10 @@ public class DentalHistoryController : Controller
         {
             if (ModelState.IsValid)
             {
+                List<string> procedures = request.Procedures.SelectMany(e => e.Split(",")).ToList(); 
                 var dentalHistory = await _service.CreateDentalHistoryAsync(
                     request.UserId, 
-                    request.Procedures, 
+                    procedures, 
                     request.ConsultationDate, 
                     request.ToothCondition
                 );
@@ -55,18 +57,23 @@ public class DentalHistoryController : Controller
                 return NotFound();
             }
 
-            UpdateDentalHistoryRequest update = new UpdateDentalHistoryRequest();
+            ViewData["dentalHistoryId"] = dentalHistoryId;
+            UpdateDentalHistoryView update = new UpdateDentalHistoryView();
             return View(update);
         }
 
         // POST: DentalHistory/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int dentalHistoryId, UpdateDentalHistoryRequest request)
+        public async Task<IActionResult> Edit(int dentalHistoryId, UpdateDentalHistoryView request)
         {
             if (ModelState.IsValid)
             {
-                await _service.UpdateDentalHistoryUserAsync(dentalHistoryId, request.NewProcedures);
+                List<string> procedures = request.NewProcedures
+                    .Split(",")
+                    .Select(e => e.Trim())
+                    .ToList();
+                await _service.UpdateDentalHistoryUserAsync(dentalHistoryId, procedures);
                 return RedirectToAction(nameof(Index));
             }
             return View(request);
@@ -84,7 +91,7 @@ public class DentalHistoryController : Controller
         }
 
         // POST: DentalHistory/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int dentalHistoryId)
         {
