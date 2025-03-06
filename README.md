@@ -170,6 +170,31 @@ Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito
  Além disso, uma arquitetura de microserviços exigiria um gerenciamento de cada aplicação, acrescentando uma complexidade a mais para gerenciar e manter a comunicação entre os serviços independentes.  
  
  ---
+ ## Design Pattern de criação de objetos
+ Foi utilizado o **Mapper Pattern** para criar um objeto DTO através de um objeto de domínio.
+ Trecho de uso do Design Pattern no código do projeto:
+ ```
+  public class DentalAnalysisMapper
+ {
+     public static DentalAnalysisResponse ToDTO(DentalAnalysis dentalAnalysis)
+     {
+
+         return new DentalAnalysisResponse(
+             Id: dentalAnalysis.Id,
+             User: dentalAnalysis.User, 
+             AnalysisDate: dentalAnalysis.AnalysisDate,
+             ProbabilityProblem: dentalAnalysis.ProbabilityProblem,
+             MonitoringDataIds: dentalAnalysis.MonitoringDataList?.Select(md => md.Id).ToList() ?? new List<int>()
+         );
+     }
+
+     public static List<DentalAnalysisResponse> ToDTO(IEnumerable<DentalAnalysis> dentalAnalysis)
+     {
+
+         return dentalAnalysis.Select(da =>  ToDTO(da)).ToList();
+     }
+ }
+ ``` 
 
 ## 💡 Tecnologias Utilizadas
 
