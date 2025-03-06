@@ -19,8 +19,13 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
 
         builder.Services.AddControllersWithViews();
-        
-        builder.Services.AddSwaggerGen();
+
+        builder.Services.AddSwaggerGen( c =>
+        {
+            c.SwaggerDoc("v1", new() { Title = "web", Version = "v1" });
+            var filePath = Path.Combine(System.AppContext.BaseDirectory, "web.xml");
+            c.IncludeXmlComments(filePath);
+        });
 
         AddDependency(builder.Services);
 
