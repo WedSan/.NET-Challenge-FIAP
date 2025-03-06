@@ -1,4 +1,4 @@
-﻿
+
   
 
 <h1  align="center">Oralytics</h1>
@@ -157,9 +157,19 @@ A aplicação **Oralytics** irá:
 
   
 
----
-
   
+ ---
+ ##  🆚 Monolito vs Microserviços
+ Uma arquitetura monolítica, consiste em manter todos os componentes do software dentro de uma única aplicação, enquanto o microserviços tem a idéia de separar diferentes componentes em aplicações invididuais, mas mantendo uma comunicação (API por exemplo). 
+ 
+ ---
+
+## 📐 Arquitetura Escolhida
+Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito grande, não havendo necessidade de dividi-la o pequenas partes como ocorre em microserviços. Optandor por uma arquitetura **monolítica**, irá simplificar o processo de desenvolvimento e manutenção, dado que todos os componentes estarão juntos em uma unica aplicação. Reduzindo complexidade, facilitando o gerencimaento de implantação em um ambiente _Cloud_ por exemplo, além de ser mais aderente a projetos de menor escala, como é o caso dessa solução. 
+  
+ Além disso, uma arquitetura de microserviços exigiria um gerenciamento de cada aplicação, acrescentando uma complexidade a mais para gerenciar e manter a comunicação entre os serviços independentes.  
+ 
+ ---
 
 ## 💡 Tecnologias Utilizadas
 
