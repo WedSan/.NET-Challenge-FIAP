@@ -164,6 +164,12 @@ A aplicação **Oralytics** irá:
  
  ---
 
+## 📐 Arquitetura Escolhida
+Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito grande, não havendo necessidade de dividi-la o pequenas partes como ocorre em microserviços. Optandor por uma arquitetura **monolítica**, irá simplificar o processo de desenvolvimento e manutenção, dado que todos os componentes estarão juntos em uma unica aplicação. Reduzindo complexidade, facilitando o gerencimaento de implantação em um ambiente _Cloud_ por exemplo, além de ser mais aderente a projetos de menor escala, como é o caso dessa solução. 
+  
+ Além disso, uma arquitetura de microserviços exigiria um gerenciamento de cada aplicação, acrescentando uma complexidade a mais para gerenciar e manter a comunicação entre os serviços independentes.  
+
+
 ## 🏗️ SOLID e Clean Architecture no Oralytics
 
 O projeto Oralytics adota os princípios SOLID em conjunto com a Clean Architecture para garantir um software mais robusto, sustentável e de fácil manutenção.
@@ -200,16 +206,12 @@ Essas práticas garantem que o Oralytics seja um projeto sustentável, preparado
 
 ---
 
-## 📐 Arquitetura Escolhida
-Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito grande, não havendo necessidade de dividi-la o pequenas partes como ocorre em microserviços. Optandor por uma arquitetura **monolítica**, irá simplificar o processo de desenvolvimento e manutenção, dado que todos os componentes estarão juntos em uma unica aplicação. Reduzindo complexidade, facilitando o gerencimaento de implantação em um ambiente _Cloud_ por exemplo, além de ser mais aderente a projetos de menor escala, como é o caso dessa solução. 
-  
- Além disso, uma arquitetura de microserviços exigiria um gerenciamento de cada aplicação, acrescentando uma complexidade a mais para gerenciar e manter a comunicação entre os serviços independentes.  
- 
  ---
  ## Design Pattern de criação de objetos
  Foi utilizado o **Mapper Pattern** para criar um objeto DTO através de um objeto de domínio.
  Trecho de uso do Design Pattern no código do projeto:
- ```
+
+ ``` 
   public class DentalAnalysisMapper
  {
      public static DentalAnalysisResponse ToDTO(DentalAnalysis dentalAnalysis)
