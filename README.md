@@ -195,6 +195,32 @@ Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito
      }
  }
  ``` 
+## 🤖 Inteligência Artificial no Oralytics
+
+A plataforma Oralytics utiliza Inteligência Artificial para ajudar na identificação precoce de possíveis problemas dentários dos usuários. O tipo de estratégia de IA adotada neste projeto é a **Detecção de Anomalias** baseada em aprendizado de máquina tradicional (ML.NET, algoritmo RandomizedPca).
+
+### Estratégia Utilizada
+
+- **Detecção de Anomalias:**  
+  A estratégia implementada utiliza algoritmos de detecção de anomalias, que analisam padrões de uso e monitoramento dos usuários (como a quantidade de relatos de problemas e procedimentos dentários realizados em determinado período). Essa abordagem permite identificar comportamentos fora do padrão, sinalizando usuários que apresentam registros muito acima da média ou diferentes do esperado.
+
+### Como os dados são usados
+
+- Os dados coletados dos usuários, como quantidade de relatos de problemas dentários e procedimentos realizados, são processados pela IA.
+- O modelo identifica automaticamente padrões incomuns que podem indicar risco elevado, erros de preenchimento ou até mesmo fraudes.
+- Com base nessas detecções, o sistema pode alertar pacientes e profissionais para que tomem medidas preventivas ou revisem informações atípicas.
+
+### Onde está a lógica da IA no projeto?
+
+A lógica responsável pela detecção de anomalias está implementada em:
+
+```
+MachineLearning/UserAnomalyPredictor.cs
+```
+
+Essa classe contém o pipeline de Machine Learning (ML.NET) utilizado para treinar e executar o modelo de detecção de anomalias sobre os dados dos usuários.
+
+---
 
 ## 💡 Tecnologias Utilizadas
 
