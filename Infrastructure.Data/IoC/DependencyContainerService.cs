@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineLearning;
+using Microsoft.ML;
 
 namespace Infrastructure.IoC
 {
@@ -29,6 +31,10 @@ namespace Infrastructure.IoC
             services.AddScoped<IReportDentalProblemService, ReportDentalProblemService>();
 
             services.AddScoped<IDentalProcedureService, DentalProcedureService>();
+
+            services.AddScoped<IUserAnomalyPredictor, UserAnomalyPredictor>();
+            
+            services.AddScoped<UserAnomalyPredictionService>();
         }
     }
 }

@@ -1,4 +1,4 @@
-using Infrastructure.Data;
+﻿using Infrastructure.Data;
 using Infrastructure.IoC;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
