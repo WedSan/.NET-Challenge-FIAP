@@ -164,6 +164,42 @@ A aplicação **Oralytics** irá:
  
  ---
 
+## 🏗️ SOLID e Clean Architecture no Oralytics
+
+O projeto Oralytics adota os princípios SOLID em conjunto com a Clean Architecture para garantir um software mais robusto, sustentável e de fácil manutenção.
+
+### O que é SOLID?
+
+SOLID é um acrônimo para cinco princípios fundamentais de design orientado a objetos:
+
+1. **S** – Single Responsibility Principle (Princípio da Responsabilidade Única)
+2. **O** – Open/Closed Principle (Princípio do Aberto/Fechado)
+3. **L** – Liskov Substitution Principle (Princípio da Substituição de Liskov)
+4. **I** – Interface Segregation Principle (Princípio da Segregação de Interface)
+5. **D** – Dependency Inversion Principle (Princípio da Inversão de Dependência)
+
+Esses princípios orientam a criação de classes, interfaces e módulos de forma que o código seja mais modular, flexível e de fácil evolução.
+
+### Relação com Clean Architecture
+
+A Clean Architecture é uma abordagem arquitetural que promove a separação de responsabilidades em camadas bem definidas, como Domínio, Aplicação, Infraestrutura e Apresentação. No Oralytics, essa estrutura permite:
+
+- **Baixo acoplamento:** As regras de negócio ficam isoladas das dependências externas (bancos de dados, frameworks, etc).
+- **Alta coesão:** Cada componente tem um único propósito, alinhado ao Single Responsibility Principle.
+- **Facilidade de testes:** Como as dependências são invertidas e as interfaces segregadas, torna-se simples criar testes unitários para cada camada.
+- **Evolução segura:** Alterações em uma camada têm impacto mínimo nas demais, graças ao Open/Closed Principle.
+
+### Por que utilizamos SOLID + Clean Architecture?
+
+- **Manutenção facilitada:** O código é mais fácil de entender, modificar e expandir.
+- **Reaproveitamento de código:** Componentes bem definidos e desacoplados podem ser reutilizados em diferentes partes do sistema.
+- **Testabilidade:** É possível testar regras de negócio de forma isolada, sem depender de infraestrutura externa.
+- **Escalabilidade:** A estrutura modular permite incorporar novas funcionalidades com baixo risco.
+
+Essas práticas garantem que o Oralytics seja um projeto sustentável, preparado para crescer e se adaptar às necessidades dos usuários e do mercado.
+
+---
+
 ## 📐 Arquitetura Escolhida
 Arquitetura escolhida é **monolítica**, pois a aplicação não irá ser muito grande, não havendo necessidade de dividi-la o pequenas partes como ocorre em microserviços. Optandor por uma arquitetura **monolítica**, irá simplificar o processo de desenvolvimento e manutenção, dado que todos os componentes estarão juntos em uma unica aplicação. Reduzindo complexidade, facilitando o gerencimaento de implantação em um ambiente _Cloud_ por exemplo, além de ser mais aderente a projetos de menor escala, como é o caso dessa solução. 
   
