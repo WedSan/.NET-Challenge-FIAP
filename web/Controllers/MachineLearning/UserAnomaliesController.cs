@@ -16,6 +16,7 @@ public class UserAnomaliesController : Controller
         _userAnomalyPredictionService = userAnomalyPredictionService;
     }
 
+    [HttpGet]
     public async Task<ActionResult<List<UserAnomalyPredictionDTO>>> GetUserAnomalies()
     {
         var usersAnomalyPrediction = await _userAnomalyPredictionService.GetUsersAnomalyPrediction();
