@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Interfaces;
+using Application.Services.Email;
 using MachineLearning;
 using Microsoft.ML;
 
@@ -35,6 +37,8 @@ namespace Infrastructure.IoC
             services.AddScoped<IUserAnomalyPredictor, UserAnomalyPredictor>();
             
             services.AddScoped<UserAnomalyPredictionService>();
+
+            services.AddScoped<IEmailService, AzureEmailService>();
         }
     }
 }
