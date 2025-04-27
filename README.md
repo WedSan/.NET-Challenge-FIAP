@@ -205,7 +205,32 @@ A Clean Architecture é uma abordagem arquitetural que promove a separação de 
 Essas práticas garantem que o Oralytics seja um projeto sustentável, preparado para crescer e se adaptar às necessidades dos usuários e do mercado.
 
 ---
+## 📧 Integração com API de E-mail da Azure
 
+A aplicação **Oralytics** realiza o envio de e-mails utilizando a **API de Comunicação da Azure**, oferecendo uma solução segura e escalável para o envio de mensagens aos usuários.
+
+O envio é feito por meio da classe `AzureEmailService`, localizada em:
+
+```
+Infrastructure.Data/Email/AzureEmailService.cs
+```
+
+### 🔧 Trecho de código responsável:
+
+```csharp
+public async Task SendEmail(String targetEmail, EmailMessage message)
+{
+    var emailMessage = new Azure.Communication.Email.EmailMessage(
+        senderAddress: _sender,
+        content: new EmailContent(message.Subject)
+        {
+            PlainText = message.Content,
+        },
+        recipients: new EmailRecipients(new List<EmailAddress> { new EmailAddress(targetEmail) }));
+
+    await _emailClient.SendAsync(WaitUntil.Completed, emailMessage);
+}
+```
  ---
  ## Design Pattern de criação de objetos
  Foi utilizado o **Mapper Pattern** para criar um objeto DTO através de um objeto de domínio.
