@@ -1,5 +1,6 @@
 ﻿
 using Application.Interfaces;
+using Application.Services.Email;
 using Application.Validators.Users;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -14,11 +15,15 @@ namespace Application.Services
         private readonly IEntityRepository<User> _entityRepository;
 
         private IEnumerable<IUserCreationValidator> _validators;
+
+        private IEmailService _emailService;
         
-        public UserService(IEntityRepository<User> entityRepository, IEnumerable<IUserCreationValidator> validators)
+        public UserService(IEntityRepository<User> entityRepository, IEnumerable<IUserCreationValidator> validators,
+            IEmailService emailService)
         {
             _entityRepository = entityRepository;
             _validators = validators;
+            _emailService = emailService;
         }
 
         public async Task<User> CreateUserAsync(string name, string email, string password, Gender gender)
@@ -38,6 +43,9 @@ namespace Application.Services
 
             await _entityRepository.AddAsync(user);
             await _entityRepository.SaveChangesAsync();
+            await _emailService.SendEmail(email, new EmailMessage("Perfil criado no Oralytics",
+                "Seu perfil foi criado com sucesso no Oralytics"));
+            
             return user;
         }
 
@@ -53,7 +61,7 @@ namespace Application.Services
         {
             User user = await _entityRepository.GetByIdAsync(userID);
             if (user == null)
-                throw new EntityNotFoundException("User doesn't exist");
+                throw new EntityNotFoundException("User doesn't exist");    
             return user;
         }
 
